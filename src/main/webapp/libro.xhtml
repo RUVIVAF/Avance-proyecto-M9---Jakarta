@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2018, 2021 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Distribution License v. 1.0, which is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    SPDX-License-Identifier: BSD-3-Clause
+
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+  	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Registro libro</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        	
+            <h2>Registro de libros</h2>
+            
+            <p>
+            <label>Titulo:</label>
+            <br/>
+            <h:inputText id="nombre" value="#{libro.titulo}"/>
+            </p>
+            
+            <p>
+            <label>Autor:</label>
+            <br/>
+            <h:inputText id="telefono" value="#{libro.autor}"/>  
+            </p>
+            
+            <p>
+                <label>Número de edicion:</label>
+                <br/>
+                <h:inputText id="numEdicion" value="#{libro.numEdicion}">
+                    <!--  <f:passThroughAttributes value="#{reservationBean.ticketAttrs}"/> -->
+                    	  <f:passThroughAttribute name ="type"  value="number"/>
+                    	  <f:passThroughAttribute name ="min"  value="1"/>
+                    	  <f:passThroughAttribute name ="max"  value="10"/>
+                    	  <f:passThroughAttribute name ="required"  value="required"/>
+                    	  <f:passThroughAttribute name ="title"  value="Número de edición entre 1 y 10"/>
+                </h:inputText>
+            </p>
+            
+            
+            <p>
+            <label>Categoria:</label>
+            <br/>
+            <h:selectOneMenu value="#{libro.categoria}" >
+			  <f:selectItem itemLabel= "Juvenil" itemValue="JUVENIL"/>
+			  <f:selectItem itemLabel="Científico" itemValue="CIENTIFICO"/>
+			  <f:selectItem itemLabel="Viajes" itemValue="VIAJES"/>
+			</h:selectOneMenu>
+			</p>
+             
+             <p>
+            <label>Editorial:</label>
+            <br/>
+            <h:selectOneMenu value="#{libro.editorial}" >
+			  <f:selectItem itemLabel= "Santillana" itemValue="Santillana"/>
+			  <f:selectItem itemLabel="Alfaguara" itemValue="Alfaguara"/>
+			  <f:selectItem itemLabel="Penguin" itemValue="Penguin"/>
+			</h:selectOneMenu>
+            </p>
+            
+            <h:commandButton id="agregar" value="Agregar" action="#{libro.agregar}"/>
+        </h:form>
+    </h:body>
+</html>
