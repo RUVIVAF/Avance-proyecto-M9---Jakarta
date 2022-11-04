@@ -13,6 +13,7 @@ public class Libros implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 103253370006282145L;
+	
 	private List<LibroEntity> libros;
 	
 	public Libros() {
@@ -22,12 +23,14 @@ public class Libros implements Serializable{
 	
 	public void agregar(Libro libro) {
 		LibroEntity le = new LibroEntity();
+		
 		le.setTitulo(libro.getTitulo());
 		le.setAutor(libro.getAutor());
 		le.setNumEdicion(libro.getNumEdicion());
 		le.setEditorial(libro.getEditorial());
 		le.setCategoria(libro.getCategoria());
 		libros.add(le);
+		
 		System.out.println("Libros registrados: "+libros.size());
 	}
 

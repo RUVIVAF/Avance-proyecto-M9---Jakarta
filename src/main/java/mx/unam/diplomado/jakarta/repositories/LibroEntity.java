@@ -1,7 +1,8 @@
 package mx.unam.diplomado.jakarta.repositories;
 
 public class LibroEntity {
-	private String titulo;
+	
+	private String  titulo;
 	private String autor;
 	private String editorial;
 	private int numEdicion;
@@ -37,6 +38,7 @@ public class LibroEntity {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+	
 	@Override
 	public String toString() {
 		return "LibroEntity [titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial + ", numEdicion="

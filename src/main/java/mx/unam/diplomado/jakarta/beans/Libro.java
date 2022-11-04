@@ -21,6 +21,7 @@ public class Libro implements Serializable{
 	private String Editorial;
 	private int numEdicion;
 	private String categoria;
+	
 	private Libros libros; 
 	
 	public Libro() {
@@ -28,7 +29,7 @@ public class Libro implements Serializable{
 		libros = new Libros();
 	}
 	
-	public List<LibroEntity>  getCandidatos() {
+	public List<LibroEntity>  getLibros() {
 		return libros.getLibros();
 	}
 
@@ -67,14 +68,6 @@ public class Libro implements Serializable{
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
-	}
-
-	public Libros getLibros() {
-		return libros;
-	}
-
-	public void setLibros(Libros libros) {
-		this.libros = libros;
 	}
 
 	public String agregar() {
