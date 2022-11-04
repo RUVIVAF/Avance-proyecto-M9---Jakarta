@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.event.AbortProcessingException;
+import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.inject.Named;
 import mx.unam.diplomado.jakarta.repositories.LibroEntity;
 import mx.unam.diplomado.jakarta.repositories.Libros;
@@ -73,6 +75,10 @@ public class Libro implements Serializable{
 	public String agregar() {
 		libros.agregar(this);
 		return "index";
+	}
+	
+	public void agregarAjax(AjaxBehaviorEvent event) throws AbortProcessingException{
+		libros.agregar(this);
 	}
 	
 }

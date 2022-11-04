@@ -21,12 +21,71 @@
         <title>Lista libros</title>
     </h:head>
     <h:body>
+    
+    	 <h:form>
+        	
+            <h2>Listado de libros/Registro ajax</h2>
+          
+            <p>
+            <label>Titulo:</label>
+            <br/>
+            <h:inputText id="titulo" value="#{libro.titulo}"/>
+            </p>
+            
+            <p>
+            <label>Autor:</label>
+            <br/>
+            <h:inputText id="autor" value="#{libro.autor}"/>  
+            </p>
+            
+            <p>
+                <label>Número de edicion:</label>
+                <br/>
+                <h:inputText id="numEdicion" value="#{libro.numEdicion}">
+                    <!--  <f:passThroughAttributes value="#{reservationBean.ticketAttrs}"/> -->
+                    	  <f:passThroughAttribute name ="type"  value="number"/>
+                    	  <f:passThroughAttribute name ="min"  value="1"/>
+                    	  <f:passThroughAttribute name ="max"  value="10"/>
+                    	  <f:passThroughAttribute name ="required"  value="required"/>
+                    	  <f:passThroughAttribute name ="title"  value="Número de edición entre 1 y 10"/>
+                </h:inputText>
+            </p>
+            
+            
+            <p>
+            <label>Categoria:</label>
+            <br/>
+            <h:selectOneMenu id="categoria" value="#{libro.categoria}" >
+			  <f:selectItem itemLabel= "Juvenil" itemValue="JUVENIL"/>
+			  <f:selectItem itemLabel="Científico" itemValue="CIENTIFICO"/>
+			  <f:selectItem itemLabel="Viajes" itemValue="VIAJES"/>
+			</h:selectOneMenu>
+			</p>
+             
+             <p>
+            <label>Editorial:</label>
+            <br/>
+            <h:selectOneMenu id = "editorial" value="#{libro.editorial}" >
+			  <f:selectItem itemLabel= "Santillana" itemValue="Santillana"/>
+			  <f:selectItem itemLabel="Alfaguara" itemValue="Alfaguara"/>
+			  <f:selectItem itemLabel="Penguin" itemValue="Penguin"/>
+			</h:selectOneMenu>
+            </p>
+                
+            <h:commandButton id="agregar" value="Agregar" style="background-color: #8EC3B0">
+            	<f:ajax execute="editorial categoria autor titulo numEdicion" listener="#{libro.agregarAjax}" render="libros"/>
+            </h:commandButton>
+            
+        </h:form> 
+        
+        <br/>
+        
         <h:dataTable id="libros"
                          value="#{libro.libros}"
                          var="lb"
                
                          border="1"  
-                         summary="Lista de libros" >
+                         summary="Lista de libros" align="center">
                 <h:column>
                     <f:facet name="header">
                     	Titulo
